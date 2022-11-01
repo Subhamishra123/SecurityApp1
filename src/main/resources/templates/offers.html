@@ -1,7 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -13,7 +10,7 @@
 <li>4Wheeler Loan ROI:: 8%</li>
 <li>Personal Loan ROI:: 12%</li>
 </ul>
-<a href="./">Home</a><br>
-<a href="signout">Logout</a><br>
+<a th:href="@{/bank/}">Home</a><br>
+<a th:href="@{/signout}">Logout</a><br>
 </body>
 </html>

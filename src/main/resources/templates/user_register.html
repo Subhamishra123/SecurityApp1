@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<form th:action="@{/user/register}" method="post" th:object="${userInfo}">
+	<h1 style="text-align: center;">User Registration Page</h1>
+	<table border="0" bgcolor="cyan" class="box">
+		<tr>
+			<td>User Name::</td>
+			<td><input type="text" th:field="*{uname}" /></td>
+		</tr>
+		<tr>
+			<td>User Pwd::</td>
+			<td><input type="password" th:field="*{pwd}" /></td>
+		</tr>
+		<tr>
+			<td>User Email::</td>
+			<td><input type="email" th:field="*{email}" /></td>
+		</tr>
+		<tr>
+			<td>User Roles::</td>
+			<td>
+			<input type="checkbox" th:field="*{roles}" value="CUSTOMER"/>CUSTOMER<input type="checkbox" th:field="*{roles}" value="MANAGER"/>MANAGER
+			
+			</td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="register"/></td>
+			<td><input type="reset" value="reset"/></td>
+		</tr>
+	</table>
+
+</form>
+<style>
+.box {
+    width:300px;
+    height:300px;
+    background-color:#d9d9d9;
+    position:fixed;
+    margin-left:-150px; /* half of width */
+    margin-top:-150px;  /* half of height */
+    top:50%;
+    left:50%;
+}
+</style>
+
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<center>
+<p>User Login Page</p>
+<form th:action="@{/login}" method="post">
+<table  class="box">
+		<tr>
+			<td>User Name::</td>
+			<td><input type="text" name="username" /></td>
+		</tr>
+		<tr>
+			<td>User Pwd::</td>
+			<td><input type="password" name="password" /></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="login"/></td>
+			<td><input type="reset" value="reset"/></td>
+		</tr>
+</form>
+<span style="color:red" th:if="${param.error}">Invalid Credentials</span>
+<span style="color:green" th:if="${param.logout}">Logout Succesful</span>
+</center>
+</body>
+<style>
+.box {
+    width:300px;
+    height:300px;
+    background-color:#d9d9d9;
+    position:fixed;
+    margin-left:-100px; /* half of width */
+    margin-top:-100px;  /* half of height */
+    top:50%;
+    left:50%;
+}
+</style>
+</html>
