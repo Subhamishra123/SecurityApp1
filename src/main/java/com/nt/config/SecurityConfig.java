@@ -16,8 +16,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("raja").password("{noop}rani").roles("CUSTOMER");
-		auth.inMemoryAuthentication().withUser("rajesh").password("{noop}hyd").roles("MANAGER");
+		/*auth.inMemoryAuthentication().withUser("raja").password("{noop}rani").roles("CUSTOMER");
+		auth.inMemoryAuthentication().withUser("rajesh").password("{noop}hyd").roles("MANAGER");*/
+		auth.ldapAuthentication().contextSource().url("ldap://localhost:10389/o=nit")
+		.managerDn("uid=admin,ou=system").managerPassword("secret")
+		.and()
+		.userSearchBase("ou=users").userSearchFilter("(cn={0})")
+		.groupSearchBase("ou=roles").groupSearchFilter("(uniqueMember={0})")
+		.groupRoleAttribute("cn").rolePrefix("ROLE_");
 	}
 	
 	@Override
